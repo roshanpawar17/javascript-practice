@@ -1,0 +1,21 @@
+#name{
+    color: rgb(78, 228, 228) ;
+}
+.name{
+    color: rgb(231, 211, 24) ;
+}
+
+.loader{
+    height: 50px;
+    width: 50px;
+    border: 5px solid rgba(0, 0, 0, 0.493);
+    border-radius: 50px;
+    border-top-color: black;
+    animation: rotateloader 1s infinite;
+}
+
+@keyframes rotateloader{
+    100%{
+        transform: rotate(360deg);
+    }
+}

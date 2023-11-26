@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        .name{
+            /* border-color: red;
+            border: 12px 32px 62px 42px; //-> write this one but not apply on element. apply only margin and padding 
+            border-style: solid;
+            padding: 10px; */
+            color: red; /* then apply 3rd */
+        }
+        #name{
+            color: rgb(89, 89, 235); /* then apply 2nd */
+        } 
+        .name{
+            color: purple !important; /*  apply 1st */
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <script src="stringoperations.js"></script>
+    <script src="arrayoperation.js"></script>
+    <script src="objectsoperations.js"></script>
+    <script src="functions.js"></script>
+    <script src="promises.js"></script>
+    <script src="asyncnawait.js"></script>
+    <script src="loops/forloop.js"></script>
+</head>
+<body>
+    <!-- <marquee behavior="scroll" direction="left"><a href="#">Hello Roshan</a></marquee> -->
+    <!-- <blockquote>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia eveniet perferendis obcaecati autem accusantium hic ipsa incidunt? Cum sint voluptatum iure eum, iste eligendi!</blockquote> -->
+    <!-- <table border="1">
+        <thead>
+            <tr>
+                <th colspan="2">roll no</th>
+                <th>name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>6447</td>
+                <td>6448</td>
+                <td>Roshan</td>
+            </tr>
+            
+        </tbody>
+    </table>
+    <br>
+    <table border="1">
+        <thead>
+            <tr>
+                <th >roll no</th>
+                <td>6447</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th rowspan="2">Name</td>                
+                <td>Roshan</td>
+            </tr>
+            <tr>
+                <td>Harsh</td>
+            </tr>
+            <tr>
+                <th>add</td>
+                <td>vikh</td>
+            </tr>
+            
+        </tbody>
+    </table> -->
+
+    <!-- <img src="uichat.png" alt="uichat" usemap="#image-map">
+    <map name="image-map">
+        <area shape="circle" coords="120,40,30" href="https://www.google.com" alt="google">
+        <area shape="rect" coords="180,100,230,150" href="https://www.facebook.com" alt="facebook">
+    </map> --> 
+    <!-- <div class="name" id="name" >Roshan</div> -->
+    <!-- <div class="loader"></div> -->
+    
+    <!-- generate qr code -->
+
+    <input type="url" id="url">
+    <button onclick="generateQR()">Generate QR code</button>
+    <br>
+    <br>
+    <div class="qrcode" style="display: inline-block;"></div>
+    <button onclick="dowloadQR()" hidden id="dowloadqr">Download</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        var dowloadqr=document.getElementById('dowloadqr')
+        let gqr;
+        function generateQR(){
+            let url=document.getElementById('url').value
+            let qrcode=document.querySelector('.qrcode')
+            qrcode.innerHTML=''
+            gqr=new QRCode(qrcode,{
+                text:url,
+                height:200,
+                width:200
+            });
+            dowloadqr.style.display="block"
+        }
+
+        function dowloadQR(){
+            if(gqr){
+                try{
+                    let canvas=document.querySelector('.qrcode canvas')
+                    let qrcodeimage=canvas.toDataURL("image/png")
+    
+                    //create temporary link
+                    const link=document.createElement('a')
+                    link.href=qrcodeimage
+                    link.download="gqr.png"
+                    document.body.appendChild(link)
+                    link.click()
+                    document.body.removeChild(link)
+                }catch(err){
+                    console.log("Failed to download QR code:", err)
+                }
+
+            }else {
+                console.error("No QR code generated yet.");
+            }
+
+        }
+    </script>
+</body>
+</html>
