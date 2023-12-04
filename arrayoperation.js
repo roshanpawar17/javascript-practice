@@ -7,6 +7,7 @@
 1. An array is a data type that can store a collection of data elements.
 2. An elements in an array are ordered and each element can be accessed by a numerical index.
 3. Arrays can be used to store any type od data, including numbers,string,objects and othres array
+4. Arrays are a special type of objects. The typeof operator in JavaScript returns "object" for arrays.
 
 */
 
