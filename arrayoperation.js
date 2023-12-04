@@ -8,6 +8,8 @@
 2. An elements in an array are ordered and each element can be accessed by a numerical index.
 3. Arrays can be used to store any type od data, including numbers,string,objects and othres array
 4. Arrays are a special type of objects. The typeof operator in JavaScript returns "object" for arrays.
+5. In JavaScript, arrays use numbered indexes.  
+6. You should use arrays when you want the element names to be numbers.
 
 */
 
