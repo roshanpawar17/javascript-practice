@@ -377,7 +377,7 @@ for(let i=0;i<arr.length;i++){
 
 
 let arr7=[10,20,30,30,40,30]
-for(let i=0;i<arr.length;i++){
+for(let i=0;i<arr7.length;i++){
     if(arr7[i]===30){
         console.log(arr7.slice(i,i+1))
     }
